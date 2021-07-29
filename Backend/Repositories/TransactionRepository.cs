@@ -28,7 +28,7 @@ namespace Backend.Repositories
 
         public TransactionResult Deposit(User user, decimal amount)
         {
-            decimal newBalance = 0;
+            decimal newBalance = user.Balance;
 
             var transactionResult = Deposit(user, amount, out newBalance);
 
@@ -53,7 +53,7 @@ namespace Backend.Repositories
 
         public TransactionResult Deposit(User user, decimal amount, out decimal finalBalance)
         {
-            finalBalance = 0;
+            finalBalance = user.Balance;
             if (user.Country.Min_Deposit >= amount)
             {
                 return new TransactionResult()

@@ -37,6 +37,18 @@ namespace Backend.Test
         }
 
         [Fact]
+        public void GermanUser_MinDepositReqNotMet()
+        {
+            var germanUser = FakeData.GermanUser(10);
+            decimal finalBalance = 0;
+
+            var transactionResult = transactionRepository.Deposit(germanUser, 5, out finalBalance);
+
+            // Result should be true and also, $10 deduction had to be applied
+            Assert.True(transactionResult.result == false && finalBalance == 10);
+        }
+
+        [Fact]
         public void UKUser_ValidWithdraw()
         {
             decimal finalBalance = 0;
