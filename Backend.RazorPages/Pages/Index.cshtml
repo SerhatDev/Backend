@@ -1,0 +1,35 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <div class="form-group" style="width:460px;">
+        <div class="form-row">
+            <label for="selectUsers" class="col-form-label-sm">Choose User</label>
+            <select id="selectUsers" class="form-control" name="selectUsers">
+            </select>
+        </div>
+        <div class="form-row">
+            <label for="userBalance" id="userBalanceLabel"></label>
+            <p id="userBalance" name="userBalance"></p>
+        </div>
+        <div class="form-row">
+            <label for="transactionType" class="col-form-label-sm">Transaction Type</label>
+            <select id="transactionType" name="transactionType" class="form-control">
+                <option value="0">Deposit</option>
+                <option value="1">Withdraw</option>
+            </select>
+        </div>
+        <div class="form-row">
+
+            <label for="amount" class="col-form-label-sm">Amount</label>
+            <input type="text" name="amount" id="amount" class="input form-control" />
+        </div>
+
+        <div class="form-row" style="margin-top:10px;">
+            <button id="btnProcess" type="button" class="btn btn-success" style="width:100%;">Process</button>
+        </div>
+    </div>
+</div>
