@@ -71,5 +71,17 @@ namespace Backend.Test
             Assert.True(transactionResult.result == false);
         }
 
+        [Fact]
+        public void UKUser_Withdraw_MinimumAmountReqNotMet()
+        {
+            var ukUser = FakeData.UKUser(50);
+            decimal finalBalance = 0;
+
+            var transactionResult = transactionRepository.Withdraw(ukUser, 5, out finalBalance);
+
+            // Result should be false because for an UKUser minimum Withdraw amount is $10
+            Assert.True(transactionResult.result == false && finalBalance==50);
+        }
+
     }
 }
