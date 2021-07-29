@@ -55,7 +55,7 @@ namespace Backend.Test
 
             var transactionResult = transactionRepository.Deposit(ukUser, 10, out finalBalance);
 
-            // Result should be true and also, $10 deduction had to be applied
+            // Result should be true and also, no deduction had to be applied
             Assert.True(transactionResult.result == true && finalBalance == 10);
         }
 
